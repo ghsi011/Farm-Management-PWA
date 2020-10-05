@@ -9,12 +9,6 @@ import kotlinx.browser.window
 
 val scope = MainScope()
 
-val Title = functionalComponent<RProps> {
-    h1 {
-        +"Farming Management Interface"
-    }
-}
-
 val App = functionalComponent<RProps> {
 
     val (serviceWorkerState, setServiceWorkerState) = useState<ServiceWorkerState>(ServiceWorkerState.Loading)
@@ -35,11 +29,11 @@ val App = functionalComponent<RProps> {
         if (pushManager != null) {
             pushManager.getSubscription().await().let {
                 setPushManagerState(
-                    if (it != null) {
-                        PushManagerState.Subscribed(pushManager = pushManager)
-                    } else {
-                        PushManagerState.NotSubscribed(pushManager = pushManager)
-                    }
+                        if (it != null) {
+                            PushManagerState.Subscribed(pushManager = pushManager)
+                        } else {
+                            PushManagerState.NotSubscribed(pushManager = pushManager)
+                        }
                 )
             }
         } else {
@@ -66,7 +60,7 @@ val App = functionalComponent<RProps> {
             // use your own VAPID public key
             val publicKey = "BLceSSynHW5gDWDz-SK5mmQgUSAOzs_yXMPtDO0AmNsRjUllTZsdmDU4_gKvTr_q1hA8ZX19xLbGe28Bkyvwm3E"
             pushManager.subscribe(
-                PushSubscriptionOptions(userVisibleOnly = true, applicationServerKey = publicKey)
+                    PushSubscriptionOptions(userVisibleOnly = true, applicationServerKey = publicKey)
             ).await()
 
             // send subscription to server
@@ -95,7 +89,7 @@ val App = functionalComponent<RProps> {
 
     when (serviceWorkerState) {
         is ServiceWorkerState.Registered -> {
-            h2 {
+            h1 {
                 +"Successfully registered a service worker!"
             }
             when (pushManagerState) {
@@ -108,7 +102,7 @@ val App = functionalComponent<RProps> {
                     }
                 }
                 is PushManagerState.Subscribed -> {
-                    h3 {
+                    h2 {
                         +"User is subscribed to Push API"
                     }
                     button {
@@ -118,13 +112,13 @@ val App = functionalComponent<RProps> {
                         +"Click here to unsubscribe"
                     }
                 }
-                PushManagerState.NotSupported -> h3 {
+                PushManagerState.NotSupported -> h2 {
                     +"Push API is not supported on this browser"
                 }
                 PushManagerState.Loading -> loadingComponent()
             }
         }
-        is ServiceWorkerState.Failed -> h2 {
+        is ServiceWorkerState.Failed -> h1 {
             +"Error in registering service worker: ${serviceWorkerState.errorMessage}"
         }
         ServiceWorkerState.Loading -> loadingComponent()

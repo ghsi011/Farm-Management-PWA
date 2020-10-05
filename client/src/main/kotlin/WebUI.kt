@@ -1,24 +1,24 @@
 package client
-
+import styled.*
 import kotlinx.css.*
 import react.*
 import react.dom.*
-import styled.css
 import styled.styledDiv
 
 class WebUI : RComponent<RProps, RState>() {
     override fun RBuilder.render() {
-        h1 {
-            +"KotlinConf Explorer"
+
+        child(Title::class){
+            attrs.title_string = "farming app title"
         }
-        styledDiv {
-            css {
-                position = Position.absolute
-                top = 10.px
-                right = 10.px
-            }
-            h3 {
-                +"John Doe: Building and breaking things"
+
+        h1 {
+            +"Field view:"
+        }
+
+        img {
+            attrs {
+                src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
             }
         }
     }
