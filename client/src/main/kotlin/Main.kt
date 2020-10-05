@@ -5,7 +5,7 @@ import react.child
 import react.dom.render
 import styled.StyledComponents
 import styled.injectGlobal
-import kotlin.browser.document
+import kotlinx.browser.document
 
 fun main() {
     val styles = CSSBuilder().apply {
@@ -29,6 +29,6 @@ fun main() {
     StyledComponents.injectGlobal(styles.toString())
 
     render(document.getElementById("root")) {
-        child(functionalComponent = App)
+        child(App)
     }
 }

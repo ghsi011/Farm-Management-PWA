@@ -5,7 +5,7 @@ import kotlinx.coroutines.*
 import kotlinx.html.js.onClickFunction
 import react.*
 import react.dom.*
-import kotlin.browser.window
+import kotlinx.browser.window
 
 val scope = MainScope()
 
@@ -87,6 +87,10 @@ val App = functionalComponent<RProps> {
         }
     }
 
+    h1 {
+        +"Farming Management Interface"
+    }
+
     when (serviceWorkerState) {
         is ServiceWorkerState.Registered -> {
             h1 {
@@ -98,7 +102,7 @@ val App = functionalComponent<RProps> {
                         attrs {
                             onClickFunction = { subscribeUser(pushManagerState.pushManager) }
                         }
-                        +"You can click here to subscribe to push notifications"
+                        +"You Can click here to subscribe to push notifications"
                     }
                 }
                 is PushManagerState.Subscribed -> {

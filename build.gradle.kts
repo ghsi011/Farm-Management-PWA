@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.kotlin.js") version "1.3.72"
+    id("org.jetbrains.kotlin.js") version "1.4.10"
 }
 
 group = "org.example"
@@ -22,7 +22,7 @@ subprojects {
 
     dependencies {
         implementation(kotlin("stdlib-js"))
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.3.5")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.3.9")
     }
 
     tasks.register<Copy>("copyDistributionToRoot") {
@@ -37,3 +37,25 @@ subprojects {
 }
 
 task("run").dependsOn(":serviceWorker:copyDevelopmentWebpackToClient")
+
+kotlin {
+    js {
+        browser {
+            webpackTask {
+                cssSupport.enabled = true
+            }
+
+            runTask {
+                cssSupport.enabled = true
+            }
+
+            testTask {
+                useKarma {
+                    useChromeHeadless()
+                    webpackConfig.cssSupport.enabled = true
+                }
+            }
+        }
+        binaries.executable()
+    }
+}
