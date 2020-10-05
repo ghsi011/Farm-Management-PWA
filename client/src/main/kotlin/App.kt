@@ -9,6 +9,12 @@ import kotlinx.browser.window
 
 val scope = MainScope()
 
+val Title = functionalComponent<RProps> {
+    h1 {
+        +"Farming Management Interface"
+    }
+}
+
 val App = functionalComponent<RProps> {
 
     val (serviceWorkerState, setServiceWorkerState) = useState<ServiceWorkerState>(ServiceWorkerState.Loading)
@@ -87,13 +93,9 @@ val App = functionalComponent<RProps> {
         }
     }
 
-    h1 {
-        +"Farming Management Interface"
-    }
-
     when (serviceWorkerState) {
         is ServiceWorkerState.Registered -> {
-            h1 {
+            h2 {
                 +"Successfully registered a service worker!"
             }
             when (pushManagerState) {
@@ -102,11 +104,11 @@ val App = functionalComponent<RProps> {
                         attrs {
                             onClickFunction = { subscribeUser(pushManagerState.pushManager) }
                         }
-                        +"You Can click here to subscribe to push notifications"
+                        +"You Can click here to subscribe to push notifications!"
                     }
                 }
                 is PushManagerState.Subscribed -> {
-                    h2 {
+                    h3 {
                         +"User is subscribed to Push API"
                     }
                     button {
@@ -116,13 +118,13 @@ val App = functionalComponent<RProps> {
                         +"Click here to unsubscribe"
                     }
                 }
-                PushManagerState.NotSupported -> h2 {
+                PushManagerState.NotSupported -> h3 {
                     +"Push API is not supported on this browser"
                 }
                 PushManagerState.Loading -> loadingComponent()
             }
         }
-        is ServiceWorkerState.Failed -> h1 {
+        is ServiceWorkerState.Failed -> h2 {
             +"Error in registering service worker: ${serviceWorkerState.errorMessage}"
         }
         ServiceWorkerState.Loading -> loadingComponent()

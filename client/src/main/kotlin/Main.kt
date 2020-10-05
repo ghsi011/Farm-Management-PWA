@@ -18,6 +18,7 @@ fun main() {
             padding = "0"
             width = LinearDimension("100%")
             height = LinearDimension("100%")
+            backgroundColor = Color.cadetBlue
         }
         "#root" {
             width = LinearDimension("100%")
@@ -29,6 +30,8 @@ fun main() {
     StyledComponents.injectGlobal(styles.toString())
 
     render(document.getElementById("root")) {
+        child(Title)
         child(App)
+        //child(WebUI::class){}
     }
 }
