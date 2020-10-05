@@ -30,7 +30,7 @@ fun main() {
     StyledComponents.injectGlobal(styles.toString())
 
     render(document.getElementById("root")) {
-        child(App)
-        child(WebUI::class){ }
+        child(PwaBackend)
+        child(App::class){ }
     }
 }
