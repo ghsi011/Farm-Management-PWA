@@ -3,7 +3,8 @@
 
 package client.components
 
-import react.*
+import react.RClass
+import react.RProps
 
 @JsName("default")
 external val LoadingSpinner: RClass<LoadingSpinnerProps>

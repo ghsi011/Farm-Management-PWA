@@ -1,10 +1,15 @@
 package serviceWorker
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.asPromise
+import kotlinx.coroutines.async
+import kotlinx.coroutines.await
 import org.w3c.fetch.Response
 import org.w3c.notifications.NotificationEvent
 import org.w3c.notifications.NotificationOptions
-import org.w3c.workers.*
+import org.w3c.workers.FetchEvent
+import org.w3c.workers.InstallEvent
+import org.w3c.workers.ServiceWorkerGlobalScope
 
 external val self: ServiceWorkerGlobalScope
 val scope = MainScope()
@@ -52,7 +57,7 @@ fun installServiceWorker() {
         }.let {
             event.respondWith(it.asPromise())
         }
-    });
+    })
 
     self.addEventListener("push", { event ->
         event as PushEvent

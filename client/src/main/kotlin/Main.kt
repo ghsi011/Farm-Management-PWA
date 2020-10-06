@@ -1,11 +1,12 @@
 package client
 
+import kotlinx.browser.document
 import kotlinx.css.*
 import react.child
+import react.dom.h1
 import react.dom.render
 import styled.StyledComponents
 import styled.injectGlobal
-import kotlinx.browser.document
 
 fun main() {
     val styles = CSSBuilder().apply {

@@ -1,11 +1,17 @@
 package client
 
 import client.components.loadingComponent
-import kotlinx.coroutines.*
-import kotlinx.html.js.onClickFunction
-import react.*
-import react.dom.*
 import kotlinx.browser.window
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.await
+import kotlinx.coroutines.launch
+import kotlinx.html.js.onClickFunction
+import react.RProps
+import react.dom.button
+import react.dom.h2
+import react.functionalComponent
+import react.useEffect
+import react.useState
 
 val scope = MainScope()
 

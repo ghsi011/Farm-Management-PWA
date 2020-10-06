@@ -1,7 +1,6 @@
 package client
 
 import org.khronos.webgl.ArrayBuffer
-import org.khronos.webgl.Uint8Array
 import org.w3c.workers.ServiceWorkerRegistration
 import kotlin.js.Promise
 

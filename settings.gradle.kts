@@ -1,4 +1,4 @@
-rootProject.name = "pwa-demo"
+rootProject.name = "FarmManager"
 
 include("client")
 include("serviceWorker")

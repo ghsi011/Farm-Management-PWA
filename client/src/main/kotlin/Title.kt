@@ -1,11 +1,7 @@
 package client
 
-import react.RBuilder
-import react.RComponent
-import react.RProps
-import react.RState
-import react.dom.h1
 import react.*
+import react.dom.h1
 
 external interface TitleProps: RProps {
     var title_string: String

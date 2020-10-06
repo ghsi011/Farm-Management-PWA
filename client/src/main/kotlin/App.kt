@@ -1,9 +1,10 @@
 package client
-import styled.*
-import kotlinx.css.*
-import react.*
-import react.dom.*
-import styled.styledDiv
+import react.RBuilder
+import react.RComponent
+import react.RProps
+import react.RState
+import react.dom.h1
+import react.dom.img
 
 class App : RComponent<RProps, RState>() {
     override fun RBuilder.render() {
