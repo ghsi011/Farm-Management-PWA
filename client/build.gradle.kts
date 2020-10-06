@@ -5,7 +5,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains:kotlin-styled:1.0.0-pre.94-kotlin-1.3.70")
+    implementation("org.jetbrains:kotlin-styled:5.2.0-pre.123-kotlin-1.4.10")
     implementation(npm("styled-components", "*"))
     implementation(npm("inline-style-prefixer", "*"))
 

@@ -5,7 +5,7 @@ import kotlinx.css.*
 import react.child
 import react.dom.h1
 import react.dom.render
-import styled.StyledComponents
+import styled.*
 import styled.injectGlobal
 
 fun main() {
@@ -28,7 +28,7 @@ fun main() {
         }
     }
 
-    StyledComponents.injectGlobal(styles.toString())
+    injectGlobal(styles.toString())
 
     render(document.getElementById("root")) {
         child(PwaBackend)
