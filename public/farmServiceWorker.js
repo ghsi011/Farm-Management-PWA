@@ -1,5 +1,5 @@
 const CACHE_NAME = "version-1";
-const URLS_TO_CACHE = ['index.html', 'offline.html'];
+const URLS_TO_CACHE = ['index.html', 'offline.html', 'farm.json'];
 
 const self = this;
 
